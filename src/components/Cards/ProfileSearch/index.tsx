@@ -16,44 +16,49 @@ const CardProfileSearch = () => {
   const [userName, setUserName] = useState("");
 
   const getProfile = (username?: string) => {
-    handleUser(username).then((res) => {
-      setUser(null);
-      setIsLoading(true);
+    handleUser(username)
+      .then((res) => {
+        setUser(null);
+        setIsLoading(true);
 
-      setIsLoading(false);
+        setIsLoading(false);
+        console.log("ressss", res);
+        // if (res.status === 404) {
+        //   setNotFound(true);
+        //   return;
+        // }
 
-      if (res.status === 404) {
+        const {
+          avatar_url,
+          name,
+          login,
+          location,
+          followers,
+          following,
+          public_repos,
+          bio,
+          email,
+        } = res.data;
+
+        const userData: UserProps = {
+          avatar_url,
+          name,
+          login,
+          location,
+          followers,
+          following,
+          public_repos,
+          bio,
+          email,
+        };
+
+        setUser(userData);
+        setNotFound(false);
+      })
+      .catch(() => {
         setNotFound(true);
         return;
-      }
-
-      const {
-        avatar_url,
-        name,
-        login,
-        location,
-        followers,
-        following,
-        public_repos,
-        bio,
-        email,
-      } = res.data;
-
-      const userData: UserProps = {
-        avatar_url,
-        name,
-        login,
-        location,
-        followers,
-        following,
-        public_repos,
-        bio,
-        email,
-      };
-
-      setUser(userData);
-      setNotFound(false);
-    });
+      });
   };
 
   useEffect(() => {
