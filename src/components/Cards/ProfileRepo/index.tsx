@@ -13,8 +13,8 @@ const CardProfileRepo = ({
   repos,
 }: {
   repos: RepoProps[] | null;
-}): JSX.Element => {
-  if (repos === null) return <h1>NOT FOUND</h1>;
+}): React.ReactNode => {
+  if (repos === null) return <Loader />;
   let defaultRepo = [...repos!];
 
   const [isLoading, setIsLoading] = useState(false);
@@ -171,11 +171,16 @@ const CardProfileRepo = ({
                       <S.CardRepo>
                         <S.ContentTitleRepo>
                           <S.TitleRepo>{name}</S.TitleRepo>
-                          <S.PrivacyRepo>{visibility}</S.PrivacyRepo>
+                          <S.PrivacyRepo>
+                            {visibility![0].toUpperCase() +
+                              visibility!.substring(1)}
+                          </S.PrivacyRepo>
                         </S.ContentTitleRepo>
                         <S.InformationRepo>{description}</S.InformationRepo>
                         <S.ContentLanguageRepo>
-                          <S.TitleLanguage>{language}</S.TitleLanguage>
+                          {language && (
+                            <S.TitleLanguage>{language}</S.TitleLanguage>
+                          )}
                           <S.ContentNumberStar>
                             <S.IconStar />
                             <S.NumberStars>

@@ -9,8 +9,7 @@ export const ContentSearch = styled.div`
   border-radius: 12px;
   border: 1px solid #fff1f1;
   height: 50px;
-  /* display: grid;
-  grid-template-columns: 60px 1fr 25px 90px; */
+  padding: 0.5rem;
   display: flex;
   align-items: center;
 
@@ -38,6 +37,7 @@ export const ContentItemSearch = styled.div`
 
   @media (max-width: 505px) {
     margin-left: 5px;
+    margin-right: 0;
   }
 
   @media (max-width: 325px) {
@@ -104,7 +104,6 @@ export const ContentButtonSearch = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 10px;
-  margin-right: 10px;
 
   @media (max-width: 505px) and (min-width: 326px) {
     margin-left: 5px;
@@ -112,7 +111,6 @@ export const ContentButtonSearch = styled.div`
 
   @media (max-width: 325px) {
     margin-left: 0;
-    margin-right: 0;
     width: 100%;
   }
 `;
@@ -133,9 +131,9 @@ export const BtnSeach = styled.button`
   font-weight: 400;
   line-height: normal;
 
-  @media (max-width: 825px) {
+  /* @media (max-width: 825px) {
     margin-right: 10px;
-  }
+  } */
 
   @media (max-width: 350px) {
     margin-left: 5px;
