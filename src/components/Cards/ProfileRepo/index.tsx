@@ -13,7 +13,7 @@ const CardProfileRepo = ({
   repos,
 }: {
   repos: RepoProps[] | null;
-}): React.ReactNode => {
+}): JSX.Element => {
   if (repos === null) return <Loader />;
   let defaultRepo = [...repos!];
 
