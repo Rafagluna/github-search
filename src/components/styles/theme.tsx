@@ -1,0 +1,73 @@
+export const theme = {
+  colors: {
+    transparent: "transparent",
+    white: "#FFFFFF",
+    replyBlue: "#5FB2FE",
+    spaceBlue: "#2B6CE5",
+    companyBlue: "#2B57F7",
+    hoverBlue: "#1444F1",
+    red: "#E01B22",
+    lightGray: "#C4C4C4",
+    gray: "#8B8B8B",
+    darkGray: "#515151",
+    green: "#49AF57",
+    purple: "#7E46FE",
+    black: "#1D1D1D",
+    yellow: "#E6B627",
+    orange: "#F27D00",
+    copper: "#B8423E",
+    fade: "#D5E3FE4D",
+    gradient: {
+      premium:
+        "background: linear-gradient(90deg, rgba(94,45,179,1) 0%, rgba(166,44,186,1) 100%);",
+    },
+    zircon: "#F2F7FF",
+  },
+  font: {
+    Mirza: "Mirza",
+  },
+  fontSize: {
+    xsmall: "0.9rem",
+    small: "1rem",
+    medium: "1.2rem",
+    large: "1.4rem",
+    xlarge: "1.6rem",
+    xxlarge: "1.8rem",
+    huge: "2.8rem",
+    massive: "3.2rem",
+    gigantic: "4.4rem",
+    colossal: "5.5rem",
+  },
+  fontWeight: {
+    thin: 100,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    bold: 700,
+    black: 900,
+  },
+  zIndex: {
+    dropdown: 500,
+    modal: 1000,
+  },
+  spacings: {
+    micro: "0.5rem",
+    tiny: "1rem",
+    little: "1.2rem",
+    mini: "1.5rem",
+    small: "2rem",
+    mediumSmall: "2.5rem",
+    medium: "3rem",
+    mediumLarge: "4rem",
+    large: "5rem",
+    extraLarge: "6rem",
+    huge: "8rem",
+    massive: "10rem",
+    gigantic: "12rem",
+    colossal: "15rem",
+    galaxy: "23.5rem",
+  },
+} as const;
+
+export type ITheme = typeof theme;
+export type Colors = keyof typeof theme.colors;

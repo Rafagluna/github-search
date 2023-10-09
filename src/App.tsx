@@ -1,13 +1,19 @@
 import { Outlet } from "react-router-dom";
 
-import classes from "./App.module.css";
+import styled from "styled-components";
 
 function App() {
+  const Container = styled.div`
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+  `;
+
   return (
-    <div className={classes.app}>
-      <h1>GitHub Finder</h1>
+    <Container>
       <Outlet />
-    </div>
+    </Container>
   );
 }
 
