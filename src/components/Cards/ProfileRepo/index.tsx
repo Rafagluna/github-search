@@ -1,7 +1,6 @@
-import { UserProps } from "../../../types/user";
 import { RepoProps } from "../../../types/repo";
 
-import { useLocation, redirect } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 import ContainerDefault from "../../ContainerDefault";
@@ -10,9 +9,13 @@ import Search from "../../Search";
 import Loader from "../../../components/Loader";
 import * as S from "./styles";
 
-const CardProfileRepo = ({ repos }: { repos: RepoProps[] | null }) => {
-  if (repos === null) return;
-  let defaultRepo = [...repos];
+const CardProfileRepo = ({
+  repos,
+}: {
+  repos: RepoProps[] | null;
+}): JSX.Element => {
+  if (repos === null) return <h1>NOT FOUND</h1>;
+  let defaultRepo = [...repos!];
 
   const [isLoading, setIsLoading] = useState(false);
   const [userName, setUserName] = useState("");
@@ -88,13 +91,13 @@ const CardProfileRepo = ({ repos }: { repos: RepoProps[] | null }) => {
           {window.innerWidth > 700 && (
             <>
               <S.ContentFilter>
-                <S.BtnSeach
+                <S.BtnSearch
                   onClick={() => setShowDropdown(!showDropdown)}
                   disabled={repoFilter?.length === 0}
                 >
                   <S.IconFilter />
                   Filter
-                </S.BtnSeach>
+                </S.BtnSearch>
                 {showDropdown && (
                   <S.DropdownContent>
                     <S.DropdownItem
@@ -118,13 +121,13 @@ const CardProfileRepo = ({ repos }: { repos: RepoProps[] | null }) => {
         {window.innerWidth <= 700 && (
           <>
             <S.ContentFilter>
-              <S.BtnSeach
+              <S.BtnSearch
                 onClick={() => setShowDropdown(!showDropdown)}
                 disabled={repoFilter?.length === 0}
               >
                 <S.IconFilter />
                 Filter
-              </S.BtnSeach>
+              </S.BtnSearch>
               {showDropdown && (
                 <S.DropdownContent>
                   <S.DropdownItem

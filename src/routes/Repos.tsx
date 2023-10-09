@@ -18,7 +18,7 @@ const Repos = () => {
 
   useEffect(() => {
     if (!username) return;
-    getRepos(username).then((data) => {
+    getRepos(username).then((data: RepoProps[]) => {
       setIsLoading(true);
       setRepos(data);
       setIsLoading(false);

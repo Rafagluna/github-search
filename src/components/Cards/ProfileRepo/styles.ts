@@ -61,7 +61,7 @@ export const ContentFilter = styled.div`
   }
 `;
 
-export const BtnSeach = styled.button`
+export const BtnSearch = styled.button`
   width: 76px;
   height: 34px;
   max-width: 100%;
